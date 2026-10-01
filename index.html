@@ -1,441 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Little Something For You ❤️</title>
+  <title>A Little Something For You ❤️</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
 
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: linear-gradient(135deg, #fff0f5, #ffe1eb, #fff8fa);
-  color: #572636;
-  text-align: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.page {
-  min-height: 100vh;
-  display: none;
-  padding: 40px 24px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #ffe5ee, #fff5f8);
+      color: #572636;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-.page.active {
-  display: flex;
-  animation: fade 0.8s ease;
-}
+    .page {
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
 
-h1 {
-  font-size: 38px;
-  margin-bottom: 12px;
-}
+    .heart {
+      font-size: 85px;
+      animation: heartbeat 1.5s infinite;
+      margin-bottom: 15px;
+    }
 
-h2 {
-  font-size: 28px;
-}
+    @keyframes heartbeat {
 
-p {
-  font-size: 19px;
-  line-height: 1.7;
-  max-width: 620px;
-}
+      0%, 100% {
+        transform: scale(1);
+      }
 
-.heart {
-  font-size: 75px;
-  animation: heartbeat 1.3s infinite;
-}
+      50% {
+        transform: scale(1.12);
+      }
 
-.card {
-  background: rgba(255,255,255,0.78);
-  padding: 30px 23px;
-  border-radius: 27px;
-  max-width: 650px;
-  box-shadow: 0 12px 35px rgba(120,50,70,0.14);
-}
+    }
 
-button {
-  border: none;
-  padding: 15px 28px;
-  border-radius: 30px;
-  background: #d94f70;
-  color: white;
-  font-size: 17px;
-  margin-top: 22px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(150,50,80,0.2);
-}
+    h1 {
+      font-size: 46px;
+      margin: 10px 0 20px;
+      line-height: 1.2;
+    }
 
-button:active {
-  transform: scale(0.95);
-}
+    .subtitle {
+      font-size: 21px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
 
-.love-list {
-  text-align: left;
-  max-width: 520px;
-  font-size: 18px;
-  line-height: 2;
-}
+    .open-button {
+      border: none;
+      background: #d94d76;
+      color: white;
+      padding: 18px 38px;
+      font-size: 20px;
+      font-family: Georgia, serif;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(217, 77, 118, 0.3);
+      transition: 0.3s;
+    }
 
-.small {
-  font-size: 15px;
-  opacity: 0.7;
-}
+    .open-button:active {
+      transform: scale(0.95);
+    }
 
-#hearts {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 10;
-}
+    /* SECOND PAGE */
 
-.floating-heart {
-  position: absolute;
-  bottom: -30px;
-  animation: float 5s linear forwards;
-  font-size: 22px;
-}
+    #messagePage {
+      display: none;
+      animation: fadeIn 1s ease;
+    }
 
-@keyframes heartbeat {
-  0%,100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-}
+    @keyframes fadeIn {
 
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-@keyframes float {
-  from {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
+    }
 
-  to {
-    transform: translateY(-110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-</style>
+    .message-box {
+      max-width: 650px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 40px 25px;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(100, 40, 60, 0.15);
+    }
+
+    .message-box h2 {
+      font-size: 36px;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    .message-box p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin: 18px 0;
+    }
+
+    /* FLOATING HEARTS */
+
+    .floating-heart {
+      position: fixed;
+      bottom: -50px;
+      font-size: 25px;
+      animation: floatUp 6s linear forwards;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .heart {
+        font-size: 75px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .subtitle {
+        font-size: 19px;
+      }
+
+      .message-box h2 {
+        font-size: 31px;
+      }
+
+      .message-box p {
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-<div id="hearts"></div>
 
+  <!-- FIRST PAGE -->
 
-<!-- PAGE 1 -->
-
-<section class="page active" id="page1">
-
-  <div class="heart">❤️</div>
-
-  <h1>Hey Zayduuuuu...</h1>
-
-  <p>
-    Wait... don't leave yet. 👀
-    <br><br>
-    Someone made a little something
-    especially for you.
-  </p>
-
-  <button onclick="nextPage()">
-    Open it ❤️
-  </button>
-
-</section>
-
-
-<!-- PAGE 2 -->
-
-<section class="page" id="page2">
-
-  <div class="card">
-
-    <h2>Okay... you're here. 🥹</h2>
-
-    <p>
-      This isn't some huge fancy gift.
-      <br><br>
-      It's just a tiny little corner of the internet
-      made to remind you how special you are.
-    </p>
-
-    <p>
-      So take your time.
-      ❤️
-    </p>
-
-    <button onclick="nextPage()">
-      Keep going 💗
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- PAGE 3 -->
-
-<section class="page" id="page3">
-
-  <div class="card">
-
-    <h2>Things about you... ❤️</h2>
-
-    <div class="love-list">
-
-      ❤️ You make people around you smile.
-
-      <br>
-
-      ❤️ You make ordinary moments feel special.
-
-      <br>
-
-      ❤️ You have a way of making someone feel cared for.
-
-      <br>
-
-      ❤️ You can be incredibly sweet.
-
-      <br>
-
-      ❤️ You can also be VERY annoying. 😤
-
-      <br>
-
-      ❤️ But somehow you're still someone's favourite person.
-
-    </div>
-
-    <button onclick="nextPage()">
-      Wait... there's more 👀
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- PAGE 4 -->
-
-<section class="page" id="page4">
-
-  <div class="heart">
-    😤❤️
-  </div>
-
-  <h2>Let's be honest...</h2>
-
-  <p>
-    Sometimes you're annoying.
-    <br>
-    Sometimes you deserve an angry look. 😤
-    <br>
-    Sometimes you probably wonder
-    why someone is being so moody.
-  </p>
-
-  <p>
-    But that's just part of the package. 😂❤️
-  </p>
-
-  <button onclick="nextPage()">
-    Continue 😌
-  </button>
-
-</section>
-
-
-<!-- PAGE 5 -->
-
-<section class="page" id="page5">
-
-  <div class="card">
-
-    <h2>A little reminder 💌</h2>
-
-    <p>
-      Even on the days when things aren't perfect...
-    </p>
-
-    <p>
-      Even when there are silly arguments...
-    </p>
-
-    <p>
-      Even when someone gets angry or moody...
-    </p>
-
-    <p>
-      The care is still there.
-      ❤️
-    </p>
-
-    <button onclick="nextPage()">
-      One more thing... 🥹
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- PAGE 6 -->
-
-<section class="page" id="page6">
-
-  <div class="heart">
-    💗
-  </div>
-
-  <h1>Zayduuuuu ❤️</h1>
-
-  <p>
-    You deserve to know that you're appreciated.
-  </p>
-
-  <p>
-    For the little things.
-    <br>
-    For the laughs.
-    <br>
-    For the care.
-    <br>
-    For simply being you.
-  </p>
-
-  <p>
-    Some feelings are difficult to put into words...
-    <br>
-    so this little website is trying its best. 🥹
-  </p>
-
-  <button onclick="nextPage()">
-    Almost there ❤️
-  </button>
-
-</section>
-
-
-<!-- FINAL PAGE -->
-
-<section class="page" id="page7">
-
-  <div class="card">
+  <section id="homePage" class="page">
 
     <div class="heart">
-      💖
+      ❤️
     </div>
 
-    <h1>Happy Boyfriend's Day</h1>
+    <h1>
+      Hey<br>
+      Zayduuuuuu...
+    </h1>
 
-    <h2>My Zayduuuuu ❤️</h2>
+    <div class="subtitle">
 
-    <p>
-      I hope this little surprise made you smile.
-    </p>
+      Wait... don't leave yet. 👀
+      <br><br>
 
-    <p>
-      You are loved.
+      Someone made a little something
       <br>
-      You are cared for.
-      <br>
-      And you are very, very special.
-    </p>
+      especially for you.
 
-    <p>
-      ❤️
-    </p>
+    </div>
 
-    <p class="small">
-      P.S. Don't let this cute website
-      make you think you're allowed to be annoying. 😤😂
-    </p>
-
-    <button onclick="surprise()">
-      One last surprise 💕
+    <button class="open-button" onclick="openMessage()">
+      Open it ❤️
     </button>
 
-  </div>
-
-</section>
+  </section>
 
 
-<script>
 
-let currentPage = 1;
+  <!-- SECOND PAGE -->
 
-function nextPage() {
+  <section id="messagePage" class="page">
 
-  document
-    .getElementById("page" + currentPage)
-    .classList.remove("active");
+    <div class="message-box">
 
-  currentPage++;
+      <div class="heart">
+        💗
+      </div>
 
-  document
-    .getElementById("page" + currentPage)
-    .classList.add("active");
+      <h2>
+        For You, Zayduuuu ❤️
+      </h2>
 
-  createHearts();
-}
+      <p>
+        I don't really know how to put everything I feel into words...
+      </p>
 
+      <p>
+        But I wanted to make this little something for you, just because you are special to me. 🥹❤️
+      </p>
 
-function createHearts() {
+    </div>
 
-  for (let i = 0; i < 10; i++) {
-
-    const heart = document.createElement("div");
-
-    heart.className = "floating-heart";
-
-    heart.innerHTML =
-      ["❤️","💗","💕","💖","💓"][Math.floor(Math.random()*5)];
-
-    heart.style.left =
-      Math.random() * 100 + "%";
-
-    heart.style.animationDuration =
-      (3 + Math.random() * 3) + "s";
-
-    document
-      .getElementById("hearts")
-      .appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 6000);
-  }
-}
+  </section>
 
 
-function surprise() {
 
-  alert(
-    "Zayduuuuu ❤️\n\n" +
-    "No matter how annoying you can be... 😂\n" +
-    "you are still very, very special. 🥹❤️\n\n" +
+  <script>
+
+    function openMessage() {
+
+      document.getElementById("homePage").style.display = "none";
+
+      document.getElementById("messagePage").style.display = "flex";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      createHearts();
+
+    }
+
+
+    function createHearts() {
+
+      for (let i = 0; i < 18; i++) {
+
+        setTimeout(function() {
+
+          const heart = document.createElement("div");
+
+          heart.className = "floating-heart";
+
+          const hearts = [
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💘"
+          ];
+
+          heart.innerHTML =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+          heart.style.left =
+            Math.random() * 100 + "%";
+
+          heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+          document.body.appendChild(heart);
+
+          setTimeout(function() {
+            heart.remove();
+          }, 8000);
+
+        }, i * 200);
+
+      }
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
