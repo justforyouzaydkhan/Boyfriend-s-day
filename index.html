@@ -1,236 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Little Something For You ❤️</title>
+  <title>A Little Something For You ❤️</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, serif;
-  background: linear-gradient(135deg, #ffe5ee, #fff5f8);
-  color: #572636;
-  text-align: center;
-  overflow-x: hidden;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.page {
-  min-height: 100vh;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #ffe5ee, #fff5f8);
+      color: #572636;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-.heart {
-  font-size: 85px;
-  animation: heartbeat 1.5s infinite;
-  margin-bottom: 15px;
-}
+    .page {
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.12);
-  }
-}
+    .heart {
+      font-size: 85px;
+      margin-bottom: 15px;
+      animation: heartbeat 1.5s infinite;
+    }
 
-h1 {
-  font-size: 46px;
-  margin: 10px 0 20px;
-  line-height: 1.2;
-}
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
 
-.subtitle {
-  font-size: 21px;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
+      50% {
+        transform: scale(1.12);
+      }
+    }
 
-.open-button {
-  border: none;
-  background: #d94d76;
-  color: white;
-  padding: 18px 38px;
-  font-size: 20px;
-  font-family: Georgia, serif;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(217,77,118,0.3);
-}
+    h1 {
+      font-size: 46px;
+      margin: 10px 0 20px;
+      line-height: 1.2;
+    }
 
-#messagePage {
-  display: none;
-}
+    .subtitle {
+      font-size: 21px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
 
-.message-box {
-  max-width: 650px;
-  width: 100%;
-  background: rgba(255,255,255,0.75);
-  padding: 40px 25px;
-  border-radius: 25px;
-  box-shadow: 0 10px 35px rgba(100,40,60,0.15);
-}
+    /* OPEN BUTTON */
 
-.message-box h2 {
-  font-size: 36px;
-  margin-top: 0;
-  margin-bottom: 25px;
-}
+    .open-button {
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      background: #d94d76;
+      color: white;
+      padding: 18px 38px;
+      font-size: 20px;
+      font-family: Georgia, serif;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(217, 77, 118, 0.3);
+    }
 
-.message-box p {
-  font-size: 20px;
-  line-height: 1.8;
-  margin: 18px 0;
-}
+    .open-button:active {
+      transform: scale(0.95);
+    }
 
-.floating-heart {
-  position: fixed;
-  bottom: -50px;
-  font-size: 25px;
-  animation: floatUp 6s linear forwards;
-  pointer-events: none;
-}
+    @media (max-width: 600px) {
 
-@keyframes floatUp {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
-}
+      .heart {
+        font-size: 75px;
+      }
 
-@media (max-width:600px) {
-  .heart {
-    font-size: 75px;
-  }
+      h1 {
+        font-size: 40px;
+      }
 
-  h1 {
-    font-size: 40px;
-  }
+      .subtitle {
+        font-size: 19px;
+      }
 
-  .subtitle {
-    font-size: 19px;
-  }
+    }
 
-  .message-box h2 {
-    font-size: 31px;
-  }
+  </style>
 
-  .message-box p {
-    font-size: 18px;
-  }
-}
-</style>
 </head>
 
 <body>
 
-<section id="homePage" class="page">
+  <section class="page">
 
-  <div class="heart">❤️</div>
+    <div class="heart">
+      ❤️
+    </div>
 
-  <h1>
-    Hey<br>
-    Zayduuuuuu...
-  </h1>
+    <h1>
+      Hey<br>
+      Zayduuuuuu...
+    </h1>
 
-  <div class="subtitle">
-    Wait... don't leave yet. 👀
-    <br><br>
-    Someone made a little something
-    <br>
-    especially for you.
-  </div>
+    <div class="subtitle">
 
-  <button class="open-button" id="openButton">
-    Open it ❤️
-  </button>
+      Wait... don't leave yet. 👀
 
-</section>
+      <br><br>
 
+      Someone made a little something
 
-<section id="messagePage" class="page">
+      <br>
 
-  <div class="message-box">
+      especially for you.
 
-    <div class="heart">💗</div>
+    </div>
 
-    <h2>
-      For You, Zayduuuu ❤️
-    </h2>
+    <!-- THIS IS A NORMAL LINK -->
+    <a class="open-button" href="message.html">
+      Open it ❤️
+    </a>
 
-    <p>
-      I don't really know how to put everything I feel into words...
-    </p>
-
-    <p>
-      But I wanted to make this little something for you, just because you are special to me. 🥹❤️
-    </p>
-
-  </div>
-
-</section>
-
-
-<script>
-document.getElementById("openButton").addEventListener("click", function() {
-
-  document.getElementById("homePage").style.display = "none";
-
-  document.getElementById("messagePage").style.display = "flex";
-
-  window.scrollTo(0, 0);
-
-  for (let i = 0; i < 18; i++) {
-
-    setTimeout(function() {
-
-      const heart = document.createElement("div");
-
-      heart.className = "floating-heart";
-
-      const hearts = ["❤️", "💕", "💗", "💖", "💘"];
-
-      heart.textContent =
-        hearts[Math.floor(Math.random() * hearts.length)];
-
-      heart.style.left = Math.random() * 100 + "%";
-
-      heart.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
-
-      document.body.appendChild(heart);
-
-      setTimeout(function() {
-        heart.remove();
-      }, 8000);
-
-    }, i * 200);
-
-  }
-
-});
-</script>
+  </section>
 
 </body>
+
 </html>
